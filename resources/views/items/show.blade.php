@@ -8,8 +8,9 @@
     <form action="/items/{{ $item->id }}" method="POST">
       @method('DELETE')
       @csrf
-      <button class="btn btn-danger">Delete</button>
+      <button type="submit" class="btn btn-danger">Delete</button>
     </form>
+    <a href="/items/{{ $item->id }}/edit"><button class="btn btn-primary">Edit</button></a>
 
   </div>
 

@@ -15,3 +15,5 @@ Route::get('/', 'ItemController@index');
 Route::post('/items', 'ItemController@store');
 Route::get('/items/{id}', 'ItemController@show');
 Route::delete('/items/{id}', 'ItemController@destroy');
+Route::put('/items/{id}', 'ItemController@update');
+Route::get('items/{id}/edit', 'ItemController@edit');

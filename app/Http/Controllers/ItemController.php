@@ -43,4 +43,23 @@ class ItemController extends Controller
 
     return redirect('/');
   }
+
+  public function edit($id)
+  {
+    $item = Item::findOrFail($id);
+
+    return view('items.edit', [
+      'item' => $item
+    ]);
+  }
+
+  public function update($id)
+  {
+    $item = Item::findOrFail($id);
+
+    $item->item = request('item');
+    $item->save();
+
+    return redirect('/');
+  }
 }
