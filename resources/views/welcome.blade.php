@@ -19,7 +19,7 @@
 
             <ul>
               @foreach ($items as $item)
-                <li>{{ $item->item }}</li>
+              <li><a href="/items/{{ $item->id }}">{{ $item->item }}</a></li>
               @endforeach
             </ul>
 
