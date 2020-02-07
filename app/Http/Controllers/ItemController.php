@@ -27,7 +27,11 @@ class ItemController extends Controller
 
   public function store()
   {
-    $item = new Item;
+    request()->validate([
+      'item' => 'required'
+    ]);
+
+    $item = new Item();
 
     $item->item = request('item');
     $item->save();
@@ -55,6 +59,10 @@ class ItemController extends Controller
 
   public function update($id)
   {
+    request()->validate([
+      'item' => 'required'
+    ]);
+    
     $item = Item::findOrFail($id);
 
     $item->item = request('item');

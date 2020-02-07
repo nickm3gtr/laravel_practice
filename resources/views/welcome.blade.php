@@ -12,7 +12,13 @@
             <form action="/items" method="POST">
               @csrf
               <div class="form-group mb-2">
-                <input id="item" name="item" type="text" class="form-control" placeholder="Item">
+                <input id="item" name="item" type="text"
+                class="form-control @error('item') is-invalid @enderror"
+                placeholder="Item"
+                value="{{ old('item') }}">
+                @error('item')
+                    <p class="text-danger">{{ $errors->first('item') }}</p>
+                @enderror
               </div>
               <button type="submit" class="btn btn-primary mb-2 form-control">Add Item</button>
             </form>
